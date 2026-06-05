@@ -1,4 +1,4 @@
-# 🚀 Go-Parallel-GameOfLife (Conway's Game of Life Parallel Implementation)
+# Go-Parallel-GameOfLife (Conway's Game of Life Parallel Implementation)
 
 This project implements **Conway's Game of Life** cellular automaton using **Go (Golang)**. The core focus is on achieving **high-performance parallel simulation** by utilising Go's built-in concurrency primitives: **Goroutines** and **Channels**. This approach ensures thread-safe operations and enables efficient simulation on large-scale grids.
 
@@ -13,7 +13,7 @@ Conway's Game of Life is an iteration-driven simulation. The grid evolves based 
 
 Our implementation parallelises these computations across multiple Go routines, significantly enhancing performance compared to serial execution.
 
-## 📝 Final Coursework Report
+## Final Coursework Report
 
 The full detailed analysis of the parallel implementation, including performance benchmarks and design rationale, is available in the final report.
 
@@ -21,7 +21,7 @@ The full detailed analysis of the parallel implementation, including performance
 
 **Click the image to view the full report.**
 
-## 🎯 Key Technologies and Implementation
+## Key Technologies and Implementation
 
 The simulation utilises a **Distributor/Worker model** to divide the grid (board) into sections, distributing the computation load across multiple Goroutines.
 
@@ -35,7 +35,7 @@ The simulation utilises a **Distributor/Worker model** to divide the grid (board
 | **Data I/O** | **PGM (Portable Graymap)** | Used for loading initial states and saving final/intermediate states. |
 | **Domain** | **Closed Domain (Toroidal)** | Implements toric boundary conditions (pixels on opposite edges are connected). |
 
-## 🏗️ Parallel Implementation Architecture
+## Parallel Implementation Architecture
 
 The project employs a robust multi-goroutine architecture, orchestrated by the central **Distributor Goroutine**.
 
@@ -65,7 +65,7 @@ This diagram illustrates how the main process (`Distributor`) interacts with the
 * **Mutex Protection:** Shared variables like the `world` and `turn` are protected by a **`sync.Mutex`** (`mu`) to prevent **data races**.
 * **Exclusive Access:** Goroutines must call `mu.Lock()` before accessing `world` or `turn` and `mu.Unlock()` afterwards to guarantee exclusive access.
 
-## 📈 Performance Analysis
+## Performance Analysis
 
 Benchmark tests were executed on a Linux machine with **20 physical cores**, running the simulation for **1000 turns** on a **$512 \times 512$** grid.
 
@@ -123,7 +123,7 @@ Here's an example of the real-time visualisation:
 
 ![Preview](https://github.com/Jen0821/Parallel-GameOfLife/blob/main/SDL-Visualisation.jpg)
 
-## ▶️ Setup
+## Setup
 
 ### **Prerequisites**
 
@@ -154,7 +154,7 @@ sudo apt-get install libsdl2-dev
 # Refer to the Go SDL documentation for detailed platform-specific setup
 ```
 
-## 🚀 Running and Testing
+## Running and Testing
 
 To run the implementation and tests:
 
